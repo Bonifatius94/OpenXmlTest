@@ -29,3 +29,15 @@ libreoffice $TEMP_FILE
 # stop and delete container
 docker stop $CONTAINER_NAME && docker container rm $CONTAINER_NAME
 ```
+
+# Setting up Docker (in case you haven't don before)
+```sh
+# install docker
+sudo apt-get update && sudo apt-get install docker.io
+
+# allow your user account to access docker (without privileges)
+sudo usermod -aG docker $USER
+
+# restart your PC (alternatively log out and re-log in)
+shutdown -r now
+```
