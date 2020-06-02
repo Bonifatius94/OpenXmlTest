@@ -15,7 +15,7 @@ sudo apt-get update && sudo apt-get install curl
 # define variables
 export PORT=80
 export TEMP_FILE=temp.xlsx
-export CONTAINER_NAME=test
+export CONTAINER_NAME=openxml-test
 
 # create a new container running the webservice
 docker run -d -p $PORT:80 --name $CONTAINER_NAME openxml-test:1.0
@@ -25,4 +25,7 @@ curl http://localhost:$PORT/documents --output $TEMP_FILE
 
 # open the document with libreoffice (a warning may show up, ignore it anyways)
 libreoffice $TEMP_FILE
+
+# stop and delete container
+docker stop $CONTAINER_NAME && docker container rm $CONTAINER_NAME
 ```
