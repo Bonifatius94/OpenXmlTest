@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OpenWordTest.Lib\OpenWordTest.Lib.csproj" />
     <ProjectReference Include="..\OpenWordTest\OpenWordTest.Lib.csproj" />
   </ItemGroup>
 

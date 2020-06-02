@@ -32,7 +32,7 @@ namespace OpenWordTest.Server.Controllers
             using (var stream = new MemoryStream())
             {
                 // write excel file to stream
-                new DocumentBuilder().CreateExcelFile(stream);
+                await Task.Run(() => new DocumentBuilder().CreateExcelFile(stream));
 
                 // dump stream content to byte array
                 binaryContent = stream.ToArray();
