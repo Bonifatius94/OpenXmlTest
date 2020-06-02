@@ -2,16 +2,16 @@
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System;
+using System.IO;
 
-namespace OpenWordTest
+namespace OpenWordTest.Lib
 {
-    public class Program
+    public class DocumentBuilder
     {
-        public static void Main(string[] args)
+        public void CreateExcelFile(Stream stream)
         {
-            string filename = "test.xlsx";
-
-            using (var document = SpreadsheetDocument.Create(filename, SpreadsheetDocumentType.Workbook))
+            // write document to stream
+            using (var document = SpreadsheetDocument.Create(stream, SpreadsheetDocumentType.Workbook))
             {
                 // initialize workbook
                 var relationshipId = "rId1";
@@ -19,7 +19,7 @@ namespace OpenWordTest
                 var workbookPart = document.AddWorkbookPart();
                 workbookPart.Workbook = workbook;
 
-                //build Worksheet Part
+                // create worksheet with data
                 var workSheetPart = workbookPart.AddNewPart<WorksheetPart>(relationshipId);
                 var workSheet = new Worksheet();
                 var sheetData = new SheetData();
@@ -37,13 +37,17 @@ namespace OpenWordTest
 
                     sheetData.Append(row);
                 }
-                
+
+                // apply worksheet to document
                 workSheet.Append(sheetData);
                 workSheetPart.Worksheet = workSheet;
 
-                //add document properties
+                // add document properties
                 document.PackageProperties.Creator = "Marco Tröster";
                 document.PackageProperties.Created = DateTime.UtcNow;
+
+                // write changes to stream
+                document.Save();
             }
         }
     }
