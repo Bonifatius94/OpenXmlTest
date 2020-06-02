@@ -30,7 +30,7 @@ libreoffice $TEMP_FILE
 docker stop $CONTAINER_NAME && docker container rm $CONTAINER_NAME
 ```
 
-# Setting up Docker (in case you haven't don before)
+# Setting up Docker (in case you haven't done before)
 ```sh
 # install docker
 sudo apt-get update && sudo apt-get install docker.io
