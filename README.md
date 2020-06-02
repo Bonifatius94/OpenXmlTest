@@ -9,9 +9,6 @@ docker build -t "openxml-test:1.0" .
 
 # Testing (e.g. Ubuntu 18.04 with LibreOffice pre-installed)
 ```sh
-# install curl (only if necessary): 
-sudo apt-get update && sudo apt-get install curl
-
 # define variables
 export PORT=80
 export TEMP_FILE=temp.xlsx
@@ -30,10 +27,10 @@ libreoffice $TEMP_FILE
 docker stop $CONTAINER_NAME && docker container rm $CONTAINER_NAME
 ```
 
-# Setting up Docker (in case you haven't done before)
+# Setting up Docker and Curl (in case you haven't done before)
 ```sh
-# install docker
-sudo apt-get update && sudo apt-get install docker.io
+# install docker and curl
+sudo apt-get update && sudo apt-get -y install docker.io curl
 
 # allow your user account to access docker (without privileges)
 sudo usermod -aG docker $USER
