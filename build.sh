@@ -1,0 +1,1 @@
+docker build -t "openxml-test:1.0" .
