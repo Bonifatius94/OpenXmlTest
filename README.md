@@ -3,6 +3,10 @@ This is just a small test for an asp.net web api creating an excel spreadsheet u
 
 # Building
 ```sh
+# clone the git repo (and step into the repo)
+git clone https://github.com/Bonifatius94/OpenWordTest
+cd OpenWordTest
+
 # build the solution (.NET core) and apply the binaries to a docker image
 docker build -t "openxml-test:1.0" .
 ```
