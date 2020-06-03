@@ -3,15 +3,16 @@ This is just a small test for an asp.net web api creating an excel spreadsheet u
 
 # Building
 ```sh
+# clone the git repo (and step into the repo)
+git clone https://github.com/Bonifatius94/OpenWordTest
+cd OpenWordTest
+
 # build the solution (.NET core) and apply the binaries to a docker image
 docker build -t "openxml-test:1.0" .
 ```
 
 # Testing (e.g. Ubuntu 18.04 with LibreOffice pre-installed)
 ```sh
-# install curl (only if necessary): 
-sudo apt-get update && sudo apt-get install curl
-
 # define variables
 export PORT=80
 export TEMP_FILE=temp.xlsx
@@ -28,4 +29,16 @@ libreoffice $TEMP_FILE
 
 # stop and delete container
 docker stop $CONTAINER_NAME && docker container rm $CONTAINER_NAME
+```
+
+# Setting up Docker and Curl (in case you haven't done before)
+```sh
+# install docker and curl
+sudo apt-get update && sudo apt-get -y install docker.io curl
+
+# allow your user account to access docker (without privileges)
+sudo usermod -aG docker $USER
+
+# restart your PC (alternatively log out and re-log in)
+shutdown -r now
 ```
