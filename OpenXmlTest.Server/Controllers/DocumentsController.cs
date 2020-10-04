@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using OpenWordTest.Lib;
+using OpenXmlTest.Lib;
 
-namespace OpenWordTest.Server.Controllers
+namespace OpenXmlTest.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]

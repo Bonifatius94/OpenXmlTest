@@ -4,7 +4,7 @@ using DocumentFormat.OpenXml.Spreadsheet;
 using System;
 using System.IO;
 
-namespace OpenWordTest.Lib
+namespace OpenXmlTest.Lib
 {
     public class DocumentBuilder
     {
